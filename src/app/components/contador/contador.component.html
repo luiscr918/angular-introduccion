@@ -1,0 +1,24 @@
+<div>
+  <h2 class="text-center text-xl m-5">Contador</h2>
+  <div class="flex justify-center">
+    <div class="flex flex-row">
+      <button
+        type="button"
+        (click)="decrementar()"
+        class="m-5 text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      >
+        Decrementar
+      </button>
+      <div class="ml-14 mr-14">
+      <h1 class="text-xl">{{ contador }}</h1>
+      </div>
+      <button
+        type="button"
+        (click)="incrementar()"
+        class=" m-5 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+      >
+        Aumentar
+      </button>
+    </div>
+  </div>
+</div>

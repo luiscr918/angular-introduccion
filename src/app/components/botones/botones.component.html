@@ -1,0 +1,34 @@
+<div>
+  <button
+    type="button"
+    [disabled]="btn_disable"
+    (click)="color_text = 'text-red-500'"
+    class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    Teal
+  </button>
+  <button
+    type="button"
+    [disabled]="btn_disable"
+    (click)="color_text = 'text-blue-900'"
+    class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    Lime
+  </button>
+  <button
+    type="button"
+    [disabled]="btn_disable"
+    (click)="color_text = 'text-green-500'"
+    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  >
+    Red
+  </button>
+</div>
+<p [class]="color_text">Desarrollo de Software</p>
+<button
+  type="button"
+  (click)="btn_disable= !btn_disable"
+  class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+>
+  Activar/Desactivar
+</button>
