@@ -3,4 +3,6 @@ export interface Usuario {
   nombre: String;
   edad: number;
   carrera: String;
+  direccion: String;
+  pasatiempos: String
 }

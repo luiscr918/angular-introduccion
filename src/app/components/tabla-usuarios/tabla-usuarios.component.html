@@ -1,4 +1,11 @@
+<div>
+  <input type="text" [(ngModel)]="nombre" placeholder="Buscar por nombre" />
+  <input type="number" [(ngModel)]="edad" placeholder="Buscar por edad" />
+  <input type="text" [(ngModel)]="carrera" placeholder="Buscar por carrera" />
+</div>
+
 <div class="relative overflow-x-auto">
+  <h1 class="text-xl">{{ mensajeHijo }}</h1>
   <table
     class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
   >
@@ -8,24 +15,47 @@
       <tr>
         <th scope="col" class="px-6 py-3">Nombre</th>
         <th scope="col" class="px-6 py-3">Edad</th>
-        <th scope="col" class="px-6 py-3">Carrea</th>
+        <th scope="col" class="px-6 py-3">Carrera</th>
       </tr>
     </thead>
     <tbody>
-      @for(usuario of usuarios;track usuario.id){
+      @for (usuario of usuarios; track usuario.id) { @if ( (nombre.trim() === ''
+      || usuario.nombre.toLowerCase().includes(nombre.toLowerCase())) &&
+      (carrera.trim() === '' ||
+      usuario.carrera.toLowerCase().includes(carrera.toLowerCase())) && (edad
+      === null || edad === undefined || (usuario.edad === edad)) ) {
       <tr
+        [ngClass]="{
+          'mayor-edad': usuario.edad > 18,
+          'menor-edad': usuario.edad < 18
+        }"
         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
       >
-        <th
-          scope="row"
-          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        <td
+          [ngStyle]="{
+            'font-size': '20px',
+            'font-weight': 'bold',
+            color: 'white'
+          }"
+          class="px-6 py-4"
         >
-          {{usuario.nombre}}
-        </th>
-        <td class="px-6 py-4">{{usuario.edad}}</td>
-        <td class="px-6 py-4">{{usuario.carrera}}</td>
+          {{ usuario.nombre }}
+        </td>
+        <td class="px-6 py-4">{{ usuario.edad }}</td>
+        <td class="px-6 py-4">{{ usuario.carrera }}</td>
+        <td>
+          <button
+            (click)="seleccionarUsuario(usuario)"
+            class="cursor-pointer hover:text-white"
+          >
+            Ver Detalles
+          </button>
+        </td>
       </tr>
-      }
+      } }
     </tbody>
   </table>
 </div>
+@if(usuario_seleccionado){
+<app-detalle-usuarios [usuario]="usuario_seleccionado" (confirmacion)="onConfirmacion($event)"> </app-detalle-usuarios>
+}
